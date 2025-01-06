@@ -3,15 +3,18 @@
 #
 # Before building the container image run:
 #
-# ./gradlew build -Dquarkus.native.enabled=true
+# ./gradlew build -Dquarkus.native.enabled=true -Dquarkus.package.jar.enabled=false
+#
+# Mac M1 for linux/amd64
+# ./gradlew build -Dquarkus.native.enabled=true -Dquarkus.package.jar.enabled=false -Dquarkus.native.container-build=true -Dquarkus.docker.buildx.platform=linux/amd64
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/tools-quarkus .
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/tools .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/tools-quarkus
+# docker run -i --rm -p 8080:8080 quarkus/tools
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.10
